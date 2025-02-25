@@ -1,0 +1,20 @@
+<div
+  class="tab-navigation"
+  data-controller="tab-navigation"
+  data-tab-navigation-tabs-value="<%= @tabs.to_json %>"
+  data-tab-navigation-actived-tab-value="<%= @actived_tab %>"
+>
+  <nav class="menu">
+    <ul class="items">
+      <% @tabs.each do |tab| %>
+        <li class="item <%= actived_tab_class(tab) %>" data-action="click->tab-navigation#emitRouteChange">
+          <%= link_to tab[:label], tab[:path] || { :tab => tab[:name] }, class: "link", 'data-turbo-action': 'advance' %>
+        </li>
+      <% end %>
+    </ul>
+
+    <%= right_tabs_actions %>
+  </nav>
+
+  <%= tab_content %>
+</div>

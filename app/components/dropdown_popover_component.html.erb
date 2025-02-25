@@ -1,0 +1,17 @@
+<%= render DropdownComponent.new(automatic_position: @automatic_position, custom_class: 'dropdown-popover') do |dropdown| %>
+  <% dropdown.with_trigger do %>
+    <%= trigger %>
+  <% end %>
+
+  <% dropdown.with_body do %>
+    <%= render PopoverMenuComponent.new do |popover|%>
+      <% popover.with_list %>
+
+      <% items.each do |item| %>
+        <% popover.with_item do %>
+          <%= item %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

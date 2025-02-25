@@ -1,0 +1,59 @@
+<div class="table-wrapper">
+  <% if rows.present? || @data.present? %>
+    <table data-controller="table" data-table-check-all-value="<%= @check_all.present? %>">
+      <thead>
+        <tr>
+          <% if expansible_contents.present? %>
+            <th></th>
+          <% end %>
+          <% @columns.each_with_index do |column, index| %>
+            <th
+              id="<%= column[:id] %>"
+              scope="col"
+            >
+              <div class="column-header">
+                <% if @check_all && !column[:id] && index == 0 %>
+                  <input type="checkbox" data-action="table#toggleAllCheck" <%= 'checked' if @check_all[:checked] %> />
+                <% elsif @sortable || column[:sortable] %>
+                  <%= sort_link(column: column[:id], label: column[:label], column_index: index) %>
+                <% else %>
+                  <span class="column-header-title"><%= column[:label] %></span>
+                <% end %>
+              </div>
+            </th>
+          <% end %>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% if rows.present? %>
+          <% rows.each_with_index do |row, index| %>
+            <tr>
+              <% if expansible_contents.present? %>
+                <td>
+                  <% if expansible_contents[index].html_safe? %>
+                    <button data-action="table#expandRow"></button>
+                  <% end %>
+                </td>
+              <% end %>
+
+              <%= row %>
+            </tr>
+
+            <% if expansible_contents.present? %>
+              <%= content_tag :tr, class: 'expansible-row' do %>
+                <%= content_tag :td, expansible_contents[index], colspan: 1000 -%>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% else %>
+          <% @data.each do |row| %>
+            <%= row_html(row_content: row) %>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <%= render(EmptyComponent.new(**@empty_params)) %>
+  <% end %>
+</div>

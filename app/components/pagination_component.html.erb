@@ -1,0 +1,38 @@
+<nav aria-label="Pagination" class="pagination">
+  <ul>
+    <li>
+      <a data-turbo-action="advance" <%= create_href_attribute(previous_page) if !first_page? %>>
+        <%= render(IconComponent.new(name: 'chevron-left', source: 'microsoft-icons')) %>
+      </a>
+    </li>
+
+    <% if show_first_page? %>
+      <li>
+        <a data-turbo-action="advance" <%= create_href_attribute(1) %>>
+          1
+        </a>
+      </li>
+
+      <li class="ellipsis">...</li>
+    <% end %>
+
+    <% links.each do |link| %>
+      <%= link %>
+    <% end %>
+
+    <% if show_last_page? %>
+      <li class="ellipsis">...</li>
+      <li class="<%= 'current' if current_last? %>">
+        <a data-turbo-action="advance" <%= create_href_attribute(@total_pages) %>>
+          <%= @total_pages %>
+        </a>
+      </li>
+    <% end %>
+
+    <li>
+      <a data-turbo-action="advance" <%= create_href_attribute(next_page) if !last_page? %>>
+        <%= render(IconComponent.new(name: 'chevron-right', source: 'microsoft-icons')) %>
+      </a>
+    </li>
+  </ul>
+</nav>

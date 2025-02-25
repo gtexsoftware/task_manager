@@ -1,0 +1,23 @@
+<%= render(FieldComponent.new(
+  label: @label,
+  label_classes: 'custom-input',
+  required: @native_attributes[:required]
+)) do |c| %>
+  <%= c.with_field do %>
+    <div class="input-wrapper">
+      <%= render(BaseComponent.new(
+        tag: :input,
+        classes: "field input-field #{iconized_input_class}",
+        **@native_attributes
+      )) %>
+
+      <div class="input-custom-icon">
+        <%= custom_icon %>
+      </div>
+
+      <% if @icon %>
+        <%= render(IconComponent.new(name: @icon, source: 'microsoft-icons'))%>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

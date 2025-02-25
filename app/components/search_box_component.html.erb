@@ -1,0 +1,25 @@
+<%= render(BaseComponent.new(
+  tag: :label,
+  'data-controller': 'search-box',
+  'data-search-box-domain-value': @domain,
+  'data-search-box-enter-behavior-value': @enter_behavior,
+  'data-action': 'keydown.esc->search-box#escapeAction  blur->search-box#hideResultsContainer',
+  'tab-index': 0,
+  classes: wrapper_classes,
+  **@wrapper_attributes
+)) do %>
+  <%= form_with url: @path, method: :post, data: {
+    turbo: true,
+    turbo_frame: @domain,
+    advance: @turbo_advance,
+    action: form_actions,
+    'search-box-target': 'form'
+  } do |form| %>
+    <%= input %>
+    <%= hidden_field_tag 'filter' %>
+  <% end %>
+
+  <div class="search-results">
+    <%= results %>
+  </div>
+<% end %>

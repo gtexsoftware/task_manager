@@ -1,0 +1,25 @@
+<div class="avatar">
+  <span class="avatar-circle size-<%= @size %>">
+    <% if icon %>
+      <%= render IconComponent.new(name: @icon, source: @icon_source) %>
+    <% elsif image %>
+      <%# Render as default if image URL is broken %>
+      <%= render IconComponent.new(name: @icon, source: @icon_source) %>
+      <img
+        class="avatar-image size-<%= @size %>"
+        alt="<%= @image_alt %>"
+        loading="<%= @image_loading %>"
+        src="<%= @image_source %>"
+        onerror="this.onerror=null;this.style.display = 'none'"
+      />
+    <% else %>
+      <span class="avatar-initial-letter">
+        <%= first_character %>
+      </span>
+    <% end %>
+  </span>
+
+  <% if @label %>
+    <span><%= @label %></span>
+  <% end %>
+</div>

@@ -1,0 +1,41 @@
+<div class="custom-dialog" data-controller="dialog" data-action="keydown.esc->dialog#handleEscKey" <%= 'hidden' if @hidden %>>
+  <div class="dialog-trigger" data-action="click->dialog#open" data-dialog-target="trigger">
+    <%= trigger %>
+  </div>
+
+  <div
+    class="dialog-wrapper <%= class_opened %>"
+    role="dialog"
+    aria-modal="true"
+    data-dialog-target="wrapper"
+    aria-labelledby="dialog-title"
+  >
+    <div class="dialog-content" data-dialog-target="content">
+      <header class="dialog-header">
+        <h3><%= @title %></h3>
+
+        <button type="button" class="close-dialog-button" data-action="dialog#close" data-dialog-target="closeButton">
+          <%= render(IconComponent.new(name: 'dismiss', source: 'microsoft-icons')) %>
+        </button>
+      </header>
+
+      <div class="dialog-body">
+        <%= content %>
+      </div>
+
+      <footer class="dialog-footer">
+        <% if custom_footer %>
+          <%= custom_footer %>
+        <% else %>
+          <%= render(ButtonComponent.new(variant: :tertiary, 'data-action': 'dialog#close', type: 'button')) do %>
+            <%= @close_label %>
+          <% end %>
+
+          <%= render(ButtonComponent.new(variant: @action_variant, type: 'submit')) do %>
+            <%= @action_label %>
+          <% end %>
+        <% end %>
+      </footer>
+    </div>
+  </div>
+</div>

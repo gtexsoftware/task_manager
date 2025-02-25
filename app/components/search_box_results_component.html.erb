@@ -1,0 +1,23 @@
+<turbo-frame id="<%= @turbo_frame_name%>">
+  <ul role="listbox" class="search-box-results" data-search-box-target="results">
+    <% options.each do |option| %>
+      <%= option %>
+    <% end %>
+
+    <li class="all-results" data-action="keydown.down->search-box#keyNavigation keydown.up->search-box#keyNavigation">
+      <button class="search-box-trigger" data-action="search-box#handleAllResultsAction keydown.enter->search-box#handleAllResultsAction">
+        <span class="all-results-label">
+          All search results for "<span class="search-query-term"><%= params[:search_box_query] %></span>"
+        </span>
+
+        <div class="press-enter">
+          <span>
+            Press enter
+          </span>
+
+          <%= render(IconComponent.new(name: 'arrow-enter', source: 'microsoft-icons')) %>
+        </div>
+      </button>
+    </li>
+  </ul>
+</turbo-frame>

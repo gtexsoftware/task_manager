@@ -1,0 +1,9 @@
+<div class="empty">
+  <%= render IconComponent.new(name: icon, source: 'microsoft-icons') if icon %>
+  <%= image_tag(image_path, alt: image_alt) if image_path %>
+
+  <%= content_tag(:h3, title) %>
+  <%= content_tag(:p, subtitle) if subtitle %>
+
+  <%= content_tag(:div, actions, class: 'actions') if actions %>
+</div>
