@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@floating-ui/dom": "^1.6.13",
+    "click-outside": "^2.0.2"
+  }
+}

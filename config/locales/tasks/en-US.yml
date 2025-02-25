@@ -1,0 +1,122 @@
+---
+en-US:
+  tasks:
+    priorities:
+      low: Low
+      medium: Medium
+      high: High
+    statuses:
+      not_started: Not Started
+      in_progress: In Progress
+      completed: Completed
+      blocked: Blocked
+    index:
+      title: Create Task
+      task_list:
+        title: No Tasks Created
+        subtitle: Create a task to view them here
+      actions:
+        delete: Delete Task
+        delete_confirm: Are you sure you want to delete this task?
+        edit: Edit Task
+      priorities:
+        low: Low
+        medium: Medium
+        high: High
+      statuses:
+        not_started: Not Started
+        in_progress: In Progress
+        completed: Completed
+        blocked: Blocked
+    show:
+      task:
+        title: Task Information
+        name: Task Name
+        description: Description
+        category: Category
+        purpose: Purpose
+    new:
+      title: Create task
+    edit:
+      title: Edit task
+    form:
+      assign_employee:
+        title: Select a Team Member
+        name: Assign Employee
+      details: Task Details
+      name: Task Name
+      name_placeholder: Enter task Title
+      description: Description
+      description_placeholder: Enter task Description
+      category: Select a Category
+      purpose: Purpose
+      due_date: Due Date
+      priority: Priority
+      status: Status
+      categories:
+        outreach: Outreach
+        email: Email
+        report: Report
+        goal: Goal
+        other: Other
+      purposes:
+        acknowledgement: Acknowledgement
+        solicitation_outreach: Solicitation Outreach
+        receipt: Receipt
+        meeting: Meeting
+        other_outreach: Other Outreach
+        newsletter: Newsletter
+        solicitation_email: Solicitation Email
+        fundraiser: Fundraiser
+        other_email: Other Email
+        financial: Financial
+        communication: Communication
+        donor_overview: Donor Overview
+        kpi: KPI
+        other_report: Other Report
+        fundraising: Fundraising
+        other_goal: Other Goal
+        other_purpose: Other
+      priorities:
+        low: Low
+        medium: Medium
+        high: High
+      statuses:
+        not_started: Not Started
+        in_progress: In Progress
+        completed: Completed
+        blocked: Blocked
+
+    # categories:
+    #   outreach: Outreach
+    #   email: Email
+    #   report: Report
+    #   goal: Goal
+    #   other: Other
+    # purposes:
+    #   acknowledgement: Acknowledgement
+    #   solicitation_outreach: Solicitation Outreach
+    #   receipt: Receipt
+    #   meeting: Meeting
+    #   other_outreach: Other Outreach
+    #   newsletter: Newsletter
+    #   solicitation_email: Solicitation Email
+    #   fundraiser: Fundraiser
+    #   other_email: Other Email
+    #   financial: Financial
+    #   communication: Communication
+    #   donor_overview: Donor Overview
+    #   kpi: KPI
+    #   other_report: Other Report
+    #   fundraising: Fundraising
+    #   other_goal: Other Goal
+    #   other_purpose: Other
+    # priorities:
+    #   low: Low
+    #   medium: Medium
+    #   high: High
+    # statuses:
+    #   not_started: Not Started
+    #   in_progress: In Progress
+    #   completed: Completed
+    #   blocked: Blocked
