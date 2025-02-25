@@ -1,0 +1,19 @@
+<% results = defined?(employess) ? employess : [] %>
+
+<%= render(SearchBoxResultsComponent.new(turbo_frame_name: 'employees')) do |search_box_results| %>
+  <% if results && results.any? %>
+    <% results.each do |result| %>
+      <%= search_box_results.with_option(
+        trigger_attributes: {
+          data: {
+            action: 'click->task#handleSelectUser',
+            'employee-id': result.id,
+            'employee-name': result.first_name,
+          }
+        }
+      ) do %>
+        <%= result.first_name %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

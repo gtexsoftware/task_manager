@@ -1,0 +1,23 @@
+<fieldset>
+  <details open>
+    <summary>
+      <h3><%= t('.title') %></h3>
+    </summary>
+    <div>
+      <%= render(SearchBoxComponent.new(
+        path: tasks_employee_autocomplete_tasks_path,
+        domain: 'employees',
+      )) do |search_box| %>
+        <% search_box.with_input_component(
+          icon: 'person',
+          label:  t('.name'),
+          value: employee&.first_name
+        ) %>
+
+        <% search_box.with_results do %>
+          <%= render partial: 'tasks/form/employee_search_box_results' %>
+        <% end %>
+      <% end %>
+    </div>
+  </details>
+</fieldset>

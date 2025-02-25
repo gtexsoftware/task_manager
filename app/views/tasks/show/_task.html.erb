@@ -1,0 +1,49 @@
+<%= turbo_frame_tag 'show_task' do %>
+  <% data = TaskDecorator.new(task) %>
+
+  <%= form_with model: task, url: edit_task_path(task), method: :get, data: { turbo: false } do |form| %>
+    <%= render(DialogComponent.new(title: t('.title'), action_label: 'Edit', opened: false)) do |dialog| %>
+      <ul class="task-information">
+        <li>
+          <h4><%= t('.name') %></h4>
+          <p><%= data.name %></p>
+        </li>
+
+        <li>
+          <h4><%= t('.description') %></h4>
+          <p><%= data.description %></p>
+        </li>
+
+        <ul>
+          <li>
+            <span>
+              <%= render IconComponent.new(name: 'calendar-empty', source: 'microsoft-icons') %>
+              <%= data.due_date_label %>
+            </span>
+          </li>
+
+          <li>
+            <span>
+              <%= render IconComponent.new(name: 'person', source: 'microsoft-icons') %>
+              <%= data.employee&.first_name %>
+            </span>
+          </li>
+
+          <li>
+            <span>
+              <%= render IconComponent.new(name: 'flag', source: 'microsoft-icons') %>
+              <%= task.priority_label %>
+            </span>
+          </li>
+
+          <li>
+            <span>
+              <%= render IconComponent.new(name: 'status', source: 'microsoft-icons') %>
+              <%= task.status_label %>
+            </span>
+          </li>
+        </ul>
+      </ul>
+    <% end %>
+  <% end %>
+<% end %>

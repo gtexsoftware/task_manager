@@ -1,0 +1,5 @@
+<% flash.each do |type, message| %>
+  <%= render(AlertComponent.new(variant: flash_message_type(type), closable: true)) do %>
+    <%= message %>
+  <% end %>
+<% end %>

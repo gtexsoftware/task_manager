@@ -1,0 +1,19 @@
+<%= turbo_frame_tag 'task_list' do %>
+  <% if tasks.count == 0 %>
+    <%= render EmptyComponent.new(
+      title: t('.title'),
+      subtitle: t('.subtitle'))
+    %> 
+  <% else %>
+    <ul class="tasks">
+      <% tasks.each do |task| %>
+        <%= render partial: 'tasks/index/task', locals: { task: task } %>
+      <% end %>
+
+      <%= render(PaginationComponent.new(
+        current_page: tasks.current_page,
+        total_pages: tasks.total_pages
+      )) %> 
+    </ul>
+  <% end %>
+<% end %>
