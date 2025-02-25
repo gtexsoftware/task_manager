@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+humberto:
+  org: casa_montanha
+  first_name: Humberto
+  last_name: Silva
+  email: humberto@gmail.com
+  types: painter
+  phone_number: 123456789
+
+jonas:
+  org: casa_praia
+  first_name: Jonas
+  last_name: Silva
+  email: jonas@gmail.com
+  types: drywall
+  phone_number: 987654321

@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+casa_montanha:
+  name: Casa Montanha
+  address: Rua da Montanha, 123
+
+casa_praia:
+  name: Casa Praia
+  address: Rua da Praia, 456
