@@ -1,0 +1,60 @@
+[role=alert],
+[role=status] {
+  padding: var(--db-spacing-2);
+  border-radius: var(--db-border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--db-spacing-1-5);
+  border: 1px solid transparent;
+
+  .content {
+    display: flex;
+
+    svg { margin-right: var(--db-spacing-1-5) }
+    h5 { margin-right: var(--db-spacing-0-5) }
+    p { width: fit-content }
+  }
+
+  &.success {
+    color: var(--db-color-green-700);
+    background-color: var(--db-color-green-100);
+    border-color: var(--db-color-green-500);
+  }
+
+  &.info {
+    color: var(--db-color-blue-700);
+    background-color: var(--db-color-blue-100);
+    border-color: var(--db-color-blue-500);
+  }
+
+  &.warning {
+    color: var(--db-color-yellow-700);
+    background-color: var(--db-color-yellow-100);
+    border-color: var(--db-color-yellow-500);
+  }
+
+  &.danger {
+    color: var(--db-color-red-700);
+    background-color: var(--db-color-red-100);
+    border-color: var(--db-color-red-500);
+  }
+
+  &.grey {
+    color: var(--db-color-grey-700);
+    background-color: var(--db-color-grey-100);
+    border-color: var(--db-color-grey-500);
+  }
+
+  .close-button {
+    height: 16px;
+    cursor: pointer;
+    color: inherit;
+
+    #close { display: none }
+  }
+
+  &:has(.close-button input[type=checkbox]:checked) {
+    display: none;
+  }
+}

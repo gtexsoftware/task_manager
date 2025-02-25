@@ -1,0 +1,25 @@
+.dropdown-popover {
+  .popover-item {
+    > a,
+    > button,
+    > form > button,
+    > .dropdown > .dropdown-trigger > button,
+    > form > .custom-dialog > .dialog-trigger > button,
+    > .custom-dialog > .dialog-trigger > button {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: var(--db-text-size-sm);
+      line-height: var(--db-text-line-height-sm);
+      color: var(--db-color-grey-800);
+      background: transparent;
+      border: none;
+      padding: var(--db-spacing-1) var(--db-spacing-2);
+      cursor: pointer;
+      text-align: left;
+    }
+
+    > * { width: 100% }
+  }
+}

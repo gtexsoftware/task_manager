@@ -1,0 +1,148 @@
+:root {
+  --db-component-button-text-color: white;
+  --db-component-button-bg-color: var(--db-color-blue-500);
+  --db-component-button-border-radius: var(--db-border-radius-lg);
+  --db-component-button-cursor: pointer;
+}
+
+.btn {
+  color: var(--db-component-button-text-color);
+  background-color: var(--db-component-button-bg-color);
+  border: none;
+  border-radius: var(--db-border-radius-lg);
+  cursor: var(--db-component-button-cursor);
+  outline: none;
+  padding: var(--db-spacing-1) var(--db-spacing-3);
+  gap: var(--db-spacing-1);
+  transition: 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  font-size: var(--db-text-size-base);
+  line-height: var(--db-text-line-height-base);
+  font-weight: 500;
+
+  &:disabled {
+    --db-component-button-cursor: not-allowed;
+    --db-component-button-text-color: var(--db-color-grey-500);
+  }
+
+  &.primary {
+    &:focus { --db-component-button-bg-color: var(--db-color-blue-500) }
+    &:hover { --db-component-button-bg-color: var(--db-color-blue-600) }
+    &:active { --db-component-button-bg-color: var(--db-color-blue-700) }
+    &:disabled { --db-component-button-bg-color: var(--db-color-blue-100) }
+    &.loading { --db-component-button-text-color: var(--db-color-blue-500) }
+  }
+
+  &.secondary {
+    --db-component-button-text-color: var(--db-color-blue-500);
+    --db-component-button-bg-color: white;
+
+    box-shadow: inset 0 0 0 1px var(--db-color-blue-500);
+
+    &:focus { --db-component-button-bg-color: white }
+    &:hover { --db-component-button-bg-color: var(--db-color-blue-50) }
+    &:active { --db-component-button-bg-color: var(--db-color-blue-200) }
+
+    &:disabled {
+      --db-component-button-bg-color: var(--db-color-blue-100);
+
+      box-shadow: none;
+    }
+
+    &.loading {
+      --db-component-button-text-color: var(--db-color-blue-500);
+      --db-component-button-bg-color: white;
+
+      box-shadow: inset 0 0 0 1px var(--db-color-blue-500);
+    }
+  }
+
+  &.tertiary {
+    --db-component-button-text-color: var(--db-color-grey-500);
+    --db-component-button-bg-color: white;
+
+    border: 1px solid var(--db-color-grey-300);
+
+    &:hover {
+      --db-component-button-bg-color: var(--db-color-grey-100);
+      border: 1px solid black;
+    }
+
+    &:hover,
+    &:focus { --db-component-button-text-color: black }
+
+    &:focus {
+      --db-component-button-bg-color: white;
+    }
+
+    &:active {
+      --db-component-button-bg-color: var(--db-color-grey-300);
+      box-shadow: none;
+    }
+
+    &:disabled {
+      --db-component-button-text-color: var(--db-color-grey-300);
+      --db-component-button-bg-color: white;
+
+      box-shadow: inset 0 0 0 1px var(--db-color-grey-300);
+    }
+
+    &.loading {
+      --db-component-button-text-color: var(--db-color-grey-500);
+      --db-component-button-bg-color: white;
+
+      box-shadow: inset 0 0 0 1px var(--db-color-grey-500);
+    }
+  }
+
+  &.critical {
+    --db-component-button-bg-color: var(--db-color-red-700);
+
+    &:hover { --db-component-button-bg-color: var(--db-color-red-800) }
+    &:disabled { --db-component-button-bg-color: var(--db-color-red-100) }
+    &.loading { --db-component-button-text-color: var(--db-color-red-500) }
+  }
+
+  &:focus {
+    outline: 2px solid black;
+    box-shadow: inset 0 0 0 2px var(--db-color-grey-200);
+  }
+
+  &:active {
+    box-shadow: none;
+    outline: none;
+  }
+
+  &.size-s {
+    height: 36px;
+    padding: 0 var(--db-spacing-2);
+  }
+
+  &.size-m { height: 40px }
+  &.size-l { height: 48px }
+
+  &.iconized {
+    &.leading { flex-direction: row-reverse }
+
+    &.only-icon {
+      &.size-s { padding: var(--db-spacing-1) }
+      &.size-m { padding: 10px }
+      &.size-l { padding: 14px }
+    }
+  }
+
+  &.loading {
+    width: 99px;
+    justify-content: center;
+
+    svg { animation: spinner-animation 1s linear infinite }
+  }
+}
+
+@keyframes spinner-animation {
+  0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg) }
+}

@@ -1,0 +1,224 @@
+.form-wrapper {
+  padding: var(--db-spacing-2) var(--db-spacing-4);
+  max-width: 508px;
+  box-sizing: initial;
+
+  fieldset {
+    padding: 0;
+    border: 0;
+    width: 100%;
+
+    details {
+      &[open] {
+        summary { margin-bottom: 20px }
+      }
+
+      summary {
+        padding-bottom: var(--db-spacing-1);
+
+        &::after { scale: 1.6 }
+      }
+
+      > div,
+      > turbo-frame > div {
+        &:not(:first-child) { margin-top: var(--db-spacing-3) }
+      }
+    }
+  }
+
+  .breadcrumb { margin-bottom: var(--db-spacing-3) }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--db-spacing-3);
+
+    input[type=checkbox] {
+      zoom: 1.5;
+      margin-right: var(--db-spacing-1);
+    }
+
+    input[type=email] { margin-top: var(--db-spacing-1) }
+
+    small { margin-top: var(--db-spacing-1) }
+
+    .inline-inputs {
+      display: flex;
+      gap: var(--db-spacing-2);
+      justify-content: space-between;
+
+      > * { width: 100% }
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+
+      > label,
+      > .custom-field {
+        &:not(:first-child) { margin-top: 20px }
+      }
+    }
+
+    .multiple-fields-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: var(--db-spacing-3);
+
+      input[type=email] { margin-top: var(--db-spacing-1) }
+    }
+
+    .hidden-input { display: none }
+
+    .close-button {
+      padding: 0;
+      background: transparent;
+      border: none;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    .closable-input {
+      position: relative;
+
+      button {
+        position: absolute;
+        right: 10px;
+        top: calc(50% - 4px);
+        color: var(--db-color-grey-500);
+      }
+    }
+
+    .add-button {
+      font-size: 14px;
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+      color: var(--db-color-blue-500);
+      padding: 0;
+    }
+
+    .phone-field-wrapper {
+      .phone-field {
+        display: flex;
+        align-items: center;
+        padding: 0;
+        margin-top: var(--db-spacing-1);
+        background-color: var(--db-color-grey-25);
+        border: 1px solid var(--db-color-grey-300);
+        border-radius: var(--db-border-radius-lg);
+        height: 39px;
+
+        input {
+          border: none;
+          height: 100%;
+          border-radius: var(--db-border-radius-lg);
+
+          &:first-child {
+            width: 100px;
+            position: relative;
+            padding: 0 10px;
+            height: 37px;
+          }
+
+          &:last-child {
+            width: 100%;
+            padding-left: 12px;
+            height: 36px;
+          }
+
+          &::-webkit-calendar-picker-indicator {
+            opacity: 0;
+            margin: 0;
+          }
+        }
+
+        .divider {
+          width: 2px;
+          height: 18px;
+          background-color: var(--db-color-grey-200);
+        }
+
+        button {
+          top: calc(50% - 8px);
+        }
+      }
+    }
+
+    .dialog-trigger { width: max-content }
+
+    .address-field-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--db-spacing-3) 0;
+      border-top: 1px solid var(--db-color-grey-200);
+    }
+
+    .country-input-group {
+      margin-top: 20px;
+    }
+
+    .text-area-field {
+      resize: vertical;
+      height: auto;
+      padding: 10px;
+      background-color: #F9FAFB;
+    }
+
+    .duplicated-input-wrapper {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      margin-top: var(--db-spacing-1);
+      position: relative;
+
+      &.showed { display: flex; }
+
+      .custom-field,
+      input { width: 100% }
+
+      .input-wrapper { margin-top: 0 }
+
+      .close-button {
+        position: absolute;
+        right: 10px;
+        color: var(--db-color-grey-500);
+      }
+    }
+
+    textarea {
+      padding: var(--db-spacing-2);
+      resize: none;
+    }
+
+    .checkbox-fields {
+      display: flex;
+      flex-wrap: wrap;
+
+      > div {
+        display: flex;
+        align-items: center;
+        width: 50%;
+
+        &:first-child,
+        &:nth-child(2) { margin-bottom: var(--db-spacing-3) }
+
+        label {
+          font-size: 14px;
+          line-height: 14px;
+        }
+      }
+    }
+
+    footer {
+      width: 100%;
+      display: flex;
+      justify-content: end;
+      gap: var(--db-spacing-1-5);
+      margin-top: var(--db-spacing-1)
+    }
+  }
+}

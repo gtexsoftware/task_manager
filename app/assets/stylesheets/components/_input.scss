@@ -1,0 +1,44 @@
+$icon-size: 13px;
+$icon-color: #979797;
+
+.custom-input {
+  .input-field {
+    &.iconized-input { padding-left: 35px; }
+
+    &:active,
+    &:focus {
+      ~ svg { color: $medium-blue-1; }
+
+      &::placeholder { color: transparent; }
+    }
+
+    &::placeholder { color: $icon-color; }
+  }
+
+  .input-wrapper {
+    position: relative;
+    margin-top: 8px;
+
+    & > svg {
+      position: absolute;
+      left: 12px;
+      height: $icon-size;
+      color: $icon-color;
+    }
+  }
+
+  .input-wrapper > svg,
+  .input-custom-icon { top: calc(50% - 7px) }
+
+  .input-custom-icon {
+    position: absolute;
+    width: $icon-size;
+    height: $icon-size;
+    left: $icon-size;
+
+    svg {
+      height: $icon-size;
+      color: $icon-color;
+    }
+  }
+}

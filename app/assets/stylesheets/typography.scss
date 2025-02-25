@@ -1,0 +1,83 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+dd {
+  font-weight: 600;
+}
+
+p,
+time,
+span,
+small,
+pre {
+  font-weight: 400;
+}
+
+h1 {
+  font-size: var(--db-text-size-2xl);
+  line-height: var(--db-text-line-height-2xl);
+  color: black;
+}
+
+h2 {
+  font-size: var(--db-text-size-xl);
+  line-height: var(--db-text-line-height-xl);
+}
+
+h3 {
+  font-size: var(--db-text-size-lg);
+  line-height: var(--db-text-line-height-lg);
+}
+
+h4 {
+  font-size: var(--db-text-size-base);
+  line-height: var(--db-text-line-height-base);
+}
+
+h5 {
+  font-size: var(--db-text-size-sm);
+  line-height: var(--db-text-line-height-sm);
+}
+
+dl {
+  dt {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+dt {
+  font-size: var(--db-text-size-base);
+  line-height: var(--db-text-line-height-base);
+  font-weight: 500;
+  color: var(--db-color-grey-500);
+}
+
+dd {
+  font-size: var(--db-text-size-sm);
+  line-height: var(--db-text-line-height-sm);
+
+  &:empty {
+    &:after {
+      content: '[-]'
+    }
+  }
+}
+
+p,
+time,
+span,
+pre {
+  font-size: var(--db-text-size-sm);
+  line-height: var(--db-text-line-height-sm);
+}
+
+small {
+  font-size: var(--db-text-size-xs);
+  line-height: var(--db-text-line-height-xs);
+}
+
+pre { font-family: 'Inter' }

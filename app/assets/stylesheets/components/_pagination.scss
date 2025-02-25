@@ -1,0 +1,58 @@
+.pagination {
+  ul {
+    display: flex;
+    list-style: none;
+    border: 1px solid var(--db-color-grey-300);
+    width: max-content;
+    padding: 0;
+    border-radius: var(--db-border-radius-md);
+
+    .ellipsis,
+    a { padding: 6px var(--db-spacing-1-5) }
+
+    li {
+      display: flex;
+
+      &:not(:last-child) { border-right: 1px solid var(--db-color-grey-300) }
+
+      &:first-child {
+        a {
+          border-top-left-radius: var(--db-border-radius-md);
+          border-bottom-left-radius: var(--db-border-radius-md);
+        }
+      }
+
+      &:last-child {
+        a {
+          border-top-right-radius: var(--db-border-radius-md);
+          border-bottom-right-radius: var(--db-border-radius-md);
+        }
+      }
+
+      &.current {
+        a {
+          color: var(--db-color-blue-500);
+          background-color: var(--db-color-blue-100);
+
+          &:hover { background-color: var(--db-color-blue-200); }
+        }
+      }
+
+      a {
+        color: var(--db-color-grey-500);
+        display: flex;
+        align-items: center;
+
+        &:not([href]) {
+          color: var(--db-color-grey-400);
+          cursor: not-allowed;
+
+          &:hover { background-color: transparent }
+        }
+
+        &:hover { background-color: var(--db-color-grey-100) }
+        svg { width: 13px }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+main {
+  > header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--db-spacing-2) var(--db-spacing-3);
+    border-bottom: 1px solid var(--db-color-grey-200);
+    min-height: 80px;
+
+    .title,
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: var(--db-spacing-base);
+    }
+  }
+}
+
+@media (max-width: $breakpoint-medium) {
+  @import 'layouts/mobile/header';
+}

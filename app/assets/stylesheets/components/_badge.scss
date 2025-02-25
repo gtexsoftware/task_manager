@@ -1,0 +1,28 @@
+:root {
+  --db-component-badge-bg-color: inherit;
+  --db-component-badge-text-color: inherit;
+}
+
+.badge {
+  padding: 2px 10px;
+  border-radius: 6px;
+  color: var(--db-component-badge-text-color);
+  background-color: var(--db-component-badge-bg-color);
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: var(--db-spacing-0-5);
+  line-height: var(--db-text-line-height-xs);
+
+  svg {
+    max-height: 16px;
+    max-width: 16px;
+  }
+
+  &.l {
+    font-size: var(--db-text-size-sm);
+    line-height: var(--db-text-line-height-sm);
+  }
+
+  &.trailing { flex-direction: row-reverse }
+}

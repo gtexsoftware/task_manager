@@ -1,0 +1,17 @@
+details {
+  &[open] {
+    summary:after { content: url(asset-path('icons/microsoft-icons/chevron-down.svg')) }
+  }
+
+  summary {
+    border-bottom: 1px solid var(--db-color-grey-200);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+
+    &::after { content: url(asset-path('icons/microsoft-icons/chevron-right.svg')) }
+
+    &::-webkit-details-marker { display: none }
+  }
+}

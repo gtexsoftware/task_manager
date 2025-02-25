@@ -1,0 +1,16 @@
+.search-box {
+  z-index: 1;
+  width: 100%;
+
+  .custom-field {
+    input {
+      background-color: white;
+      padding: var(--db-spacing-1-5) var(--db-spacing-2);
+    }
+  }
+
+  .search-results {
+    display: none;
+    position: relative;
+  }
+}

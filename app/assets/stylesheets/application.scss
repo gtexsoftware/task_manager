@@ -1,0 +1,93 @@
+@import 'variables';
+@import 'reset';
+@import 'actiontext';
+@import 'trix.css';
+
+@import 'base/details';
+@import 'base/fields';
+@import 'base/form';
+
+
+@import 'layouts/header';
+@import 'components/components';
+@import 'design_tokens/base/base';
+
+
+@import 'typography';
+
+
+
+ header > nav ul li:nth-child(4) a::after {
+  content: 'Beta';
+  padding: 2px 10px;
+  border-radius: 6px;
+  color: var(--db-color-purple-800);
+  background-color: var(--db-color-purple-100);
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: var(--db-spacing-0-5);
+  line-height: var(--db-text-line-height-xs);
+  position: absolute;
+  right: 30px;
+}
+
+body {
+  font-family: 'Inter';
+  color: var(--db-color-grey-800);
+  display: grid;
+  grid-template-areas: 'navbar main';
+  grid-auto-flow: column;
+  grid-template-columns: #{$navbar-width} 1fr;
+
+  &:not(:has(> header)) {
+    display: flex;
+
+    main { width: 100% }
+  }
+
+  > [role=alert],
+  #flash [role=alert] {
+    position: fixed;
+    top: 40px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    animation: fadeOut 4s forwards;
+    animation-delay: 4s;
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      display: none;
+    }
+  }
+}
+
+.navbar {
+  grid-column: 1;
+}
+
+.body-loading-state {
+  * {
+    cursor: progress;
+  }
+}
+
+main {
+  grid-area: main;
+  grid-column: 2/span 2;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+@media (max-width: $breakpoint-medium) {
+  @import 'mobile/application';
+}
+

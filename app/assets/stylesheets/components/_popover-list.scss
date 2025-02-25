@@ -1,0 +1,21 @@
+.popover-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: fit-content;
+  background-color: white;
+  border: 1px solid var(--db-color-grey-200);
+  border-radius: var(--db-border-radius-md);
+
+  .popover-item {
+    box-sizing: border-box;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+
+    &:hover { background-color: var(--db-color-grey-100) }
+
+    &:active,
+    &:focus { background-color: var(--db-color-grey-200) }
+  }
+}

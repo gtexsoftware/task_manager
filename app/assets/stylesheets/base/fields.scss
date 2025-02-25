@@ -1,0 +1,119 @@
+label {
+  font-size: var(--db-text-size-xs);
+  line-height: var(--db-text-line-height-4xs);
+  color: var(--db-color-grey-700);
+}
+
+label + select,
+label + input:not([type="checkbox"]):not([type="radio"]),
+label + textarea { margin-top: var(--db-spacing-1) }
+
+select,
+input:not([type="checkbox"]):not([type="radio"]),
+textarea {
+  width: 100%;
+  position: relative;
+  border: 1px solid var(--db-color-grey-300);
+  border-radius: var(--db-border-radius-lg);
+  padding: 10px var(--db-spacing-1);
+  font-size: var(--db-text-size-sm);
+  background-color: var(--db-color-grey-25);
+}
+
+select,
+input[list] {
+  appearance: none;
+  background-image: url(asset-path('icons/microsoft-icons/chevron-down.svg'));
+  background-size: 12px;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px) center;
+}
+
+input[type=radio] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--db-color-grey-300);
+  border-radius: var(--db-border-radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:focus { outline: 3px solid var(--db-color-blue-200) }
+
+  &::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: var(--db-border-radius-full);
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em white;
+    color: white;
+  }
+
+  &:checked:not(:disabled) {
+    border: none;
+    background-color: var(--db-color-blue-600);
+
+    &::before { transform: scale(1) }
+  }
+
+  &:disabled {
+    border: 2px solid var(--db-color-grey-300);
+    background-color: var(--db-color-grey-200);
+  }
+
+  &.check {
+    color: white;
+
+    &::before {
+      content: '';
+      -webkit-mask-image: url("icons/microsoft-icons/check.svg");
+      mask-image: url("icons/microsoft-icons/check.svg");
+      width: 10px;
+    }
+  }
+}
+
+input[type=radio] + label { margin-left: var(--db-spacing-1) }
+label + input[type=radio] { margin-left: var(--db-spacing-1) }
+
+small {
+  color: var(--db-color-grey-500);
+}
+
+.radio-group {
+  display: flex;
+  align-items: center;
+}
+
+input[type="search"] {
+  &::-webkit-search-cancel-button {
+    display: none;
+  }
+}
+
+.select-with-alternative-field {
+  margin-top: var(--db-spacing-1);
+
+  select.hide, .alternative-field { display: none }
+  .alternative-field.show { display: block }
+
+  .alternative-field {
+    position: relative;
+
+    button {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      right: 10px;
+      background: transparent;
+      border: none;
+      top: 20px;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+  }
+}

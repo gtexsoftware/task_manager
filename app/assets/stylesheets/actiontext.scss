@@ -1,0 +1,83 @@
+trix-toolbar {
+  .trix-button-row {
+    padding: var(--db-spacing-1);
+    border: 1px solid var(--db-color-grey-200);
+    border-bottom: none;
+    border-top-left-radius: var(--db-border-radius-md);
+    border-top-right-radius: var(--db-border-radius-md);
+
+    .trix-button-group {
+      border: none;
+      border-radius: 0;
+      gap: var(--db-spacing-1);
+      margin-bottom: 0;
+
+      &--file-tools,
+      &--block-tools {
+        border-left: 1px solid var(--db-color-grey-200);
+        margin-left: var(--db-spacing-1);
+      }
+
+      &--block-tools { padding-left: var(--db-spacing-1); }
+
+      .trix-button {
+        border: none;
+        width: 24px;
+        height: 24px;
+
+        &.trix-active { background-color: var(--db-color-grey-200) }
+      }
+    }
+  }
+
+  .trix-dialog__link-fields {
+    .trix-button-group {
+      border: none;
+      gap: var(--db-spacing-1);
+    }
+  }
+}
+
+trix-editor {
+  border: 1px solid var(--db-color-grey-200);
+  border-radius: 0;
+  border-bottom-left-radius: var(--db-border-radius-md);
+  border-bottom-right-radius: var(--db-border-radius-md);
+  padding: var(--db-spacing-2);
+}
+
+.trix-dropdown {
+  padding: 0px 4px;
+}
+
+.trix-content .attachment-gallery > action-text-attachment,
+.trix-content .attachment-gallery > .attachment {
+  flex: 1 0 33%;
+  padding: 0 0.5em;
+  max-width: 33%;
+}
+
+.trix-content .attachment-gallery.attachment-gallery--2 > action-text-attachment,
+.trix-content .attachment-gallery.attachment-gallery--2 > .attachment, .trix-content .attachment-gallery.attachment-gallery--4 > action-text-attachment,
+.trix-content .attachment-gallery.attachment-gallery--4 > .attachment {
+  flex-basis: 50%;
+  max-width: 50%;
+}
+
+.trix-content action-text-attachment .attachment {
+  padding: 0 !important;
+  max-width: 100% !important;
+}
+
+.trix-content {
+  a {
+    text-decoration: underline;
+  }
+
+  .attachment--preview {
+    text-align: left;
+
+    .attachment__caption,
+    .attachment__metadata { display: none }
+  }
+}

@@ -1,0 +1,8 @@
+main {
+  > header {
+    height: max-content;
+    padding: var(--db-spacing-1-5) var(--db-spacing-2);
+    flex-wrap: wrap;
+    gap: var(--db-spacing-1);
+  }
+}

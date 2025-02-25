@@ -1,0 +1,8 @@
+.dropdown {
+  width: max-content;
+
+  > .dropdown-body {
+    display: none;
+    width: max-content;
+  }
+}

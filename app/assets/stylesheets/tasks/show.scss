@@ -1,0 +1,31 @@
+.task-information,
+.task-information ul {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+.custom-dialog:has(.task-information) .dialog-wrapper .dialog-content { max-width: max-content }
+
+.task-information {
+  > li {
+    p {
+      margin-bottom: var(--db-spacing-2);
+      max-width: 520px;
+    }
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    gap: var(--db-spacing-1);
+
+    span {
+      padding: 6px var(--db-spacing-2);
+      border: 1px solid var(--db-color-grey-200);
+      border-radius: var(--db-border-radius-md);
+      display: flex;
+      align-items: center;
+      gap: var(--db-spacing-1);
+    }
+  }
+}

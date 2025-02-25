@@ -1,0 +1,15 @@
+.details {
+  .details-sections {
+    .data-section {
+      flex-direction: column;
+
+      .data-column {
+        &:not(:last-child) {
+          border-right: none;
+          border-bottom: 1px solid var(--db-color-grey-200);
+          margin-bottom: var(--db-spacing-2);
+        }
+      }
+    }
+  }
+}

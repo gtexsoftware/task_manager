@@ -1,0 +1,11 @@
+@import "variables";
+@import 'common/dashboard';
+@import 'common/details';
+@import 'tasks/index';
+@import 'tasks/form';
+@import 'tasks/show';
+
+.error {
+    color: var(--db-color-red-600);
+    font-size: small;
+  }
