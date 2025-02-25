@@ -1,0 +1,4 @@
+// click-outside@2.0.2 downloaded from https://ga.jspm.io/npm:click-outside@2.0.2/build/index.js
+
+import e from"babel-runtime/core-js/map";import t from"component-event";import l from"node-contains";var i={};Object.defineProperty(i,"__esModule",{value:true});var n=e;var u=_interopRequireDefault(n);i.default=clickOutside;var o=t;var r=_interopRequireDefault(o);var a=l;var c=_interopRequireDefault(a);function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}var d=new u.default;function clickOutside(e,t){d.set(e,t);return function unbind(){d.delete(e)}}clickOutside.globalClick=globalClick;clickOutside.install=install;function globalClick(e){d.forEach((function(t,l){(0,c.default)(l,e.target)||t.call(l,e)}))}function install(e){e||(e=document);r.default.bind(e,"click",globalClick)}"undefined"!==typeof document&&install(document);i=i["default"];var f=i;const s=i.__esModule;export default f;export{s as __esModule};
+
