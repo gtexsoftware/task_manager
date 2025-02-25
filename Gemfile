@@ -28,6 +28,18 @@ gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
 
+# debugg
+gem "byebug"
+
+# Pagination
+gem "will_paginate"
+
+# View Components
+gem "view_component"
+
+# sassc-rails
+gem "sassc-rails"
+
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
@@ -54,6 +66,7 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem "hotwire-spark"
 end
 
 group :test do
