@@ -4,7 +4,7 @@
   padding-bottom: var(--db-spacing-3);
 
   .dashboard-sections {
-    padding: 0 var(--db-spacing-3);
+    padding: 300px;
 
     .input-section { margin-top: var(--db-spacing-5) }
 
@@ -73,7 +73,7 @@
             .dialog-body {
               > div { margin-top: var(--db-spacing-2) }
             }
-          }
+            }
         }
 
         #applied-filters {

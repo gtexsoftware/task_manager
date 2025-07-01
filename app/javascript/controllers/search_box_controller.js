@@ -20,6 +20,13 @@ export default class extends Controller {
 
   connect() {
     console.log(' foi')
+
+      const {
+        employeeId,
+        employeeName
+      } = e.target.closest('button').dataset
+
+      console.log(employeeId, employeeName)
   }
 
   submit() {

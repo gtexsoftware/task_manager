@@ -12,7 +12,6 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-
     if @task.save
       redirect_to tasks_path, notice: "You've successfully created the task."
     else
@@ -31,6 +30,11 @@ class TasksController < ApplicationController
         locals: { task: @task }
       )
     ]
+  end
+
+  def edit
+    @task = Task.find(params[:id])
+    @task_decorator = TaskDecorator.new(@task)
   end
 
   def update
@@ -101,7 +105,7 @@ class TasksController < ApplicationController
   def handle_success_message
     message = "You've successfully updated the task."
 
-    if params[:inline].nil?
+    if params[:action] = "update"
       redirect_to tasks_path, notice: message
     else
       flash.now[:notice] = message

@@ -1,11 +1,4 @@
-  <%= render(ButtonComponent.new(
-    size: :l,
-    href: new_task_path,
-    icon: { name: 'add' },
-    data: { turbo: true }
-  )) do %>
-      Add task
-  <% end %>
+
 
 <% content_for(:global_stimilus_controller, 'task') %>
 
@@ -16,5 +9,14 @@
     } %>
 
     <%= turbo_frame_tag 'show_task' %>
+
+    <%= render(ButtonComponent.new(
+      size: :l,
+      href: new_task_path,
+      icon: { name: 'add' },
+      data: { turbo: true }
+    )) do %>
+        Add task
+    <% end %>
   </div>
 </div>

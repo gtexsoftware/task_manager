@@ -3,7 +3,7 @@
 
   .dashboard-sections {
     height: 100%;
-    padding: 0;
+    padding: 300px;
 
     .empty {
       margin: 20px;
@@ -17,7 +17,7 @@
       flex-direction: column;
       align-items: end;
 
-      turbo-frame { width: 100%; }
+      turbo-frame { width: 800px }
 
       .task {
         padding: var(--db-spacing-3) var(--db-spacing-2);

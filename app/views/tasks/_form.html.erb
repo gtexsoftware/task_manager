@@ -5,7 +5,7 @@
     <%= render partial: 'tasks/form/assign_employee', locals: {
       employee: @task.employee,
     } %>
-    <%# <%= validation_error_for(@task, :org_user_id) %>
+    <%= validation_error_for(@task, :org_user_id) %>
   </div>
 
   <div class="form-wrapper">

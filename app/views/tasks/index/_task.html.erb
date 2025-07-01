@@ -25,91 +25,92 @@
     </div>
 
     <div>
-      <div>
-        <%= render DropdownPopoverComponent.new do |component| %>
-          <% component.with_trigger do %>
-            <button>
-              <%= render BadgeComponent.new(color: :grey, icon: 'chevron-down', icon_position: :trailing) do %>
-                <%= data.status %>
-              <% end %>
-            </button>
-          <% end %>
-
-          <% Task.statuses.each do |_, status| %>
-            <% component.with_item do %>
-              <%= button_to I18n.t("task.statuses.#{status}", default: status.humanize), task_path(data.id),
-                params: {
-                  task: {
-                    id: data.id,
-                    status: status
-                  },
-                  inline: true
-                },
-                method: :patch
-              %>
+      <h1>status</h1>
+      <%= render DropdownPopoverComponent.new do |component| %>
+        <% component.with_trigger do %>
+          <button>
+            <%= render BadgeComponent.new(color: :grey, icon: 'chevron-down', icon_position: :trailing) do %>
+              <%= data.status %>
             <% end %>
-          <% end %>
+          </button>
         <% end %>
 
-        <%= render DropdownPopoverComponent.new do |component| %>
-          <% component.with_trigger do %>
-            <button>
-              <%= render BadgeComponent.new(color: priority_color(data.priority), icon: 'chevron-down', icon_position: :trailing) do %>
-                <%= data.priority %>
-              <% end %>
-            </button>
-          <% end %>
-
-          <% Task.priorities.each do |_, priority| %>
-            <% component.with_item do %>
-              <%= button_to I18n.t("tasks.index.priorities.#{priority}"), task_path(data.id),  params: {
-                  task: {
-                    id: data.id,
-                    priority: priority
-                  },
-                  inline: true
-                },
-                method: :patch
-              %>
-            <% end %>
-          <% end %>
-        <% end %>
-
-        <%= render DropdownPopoverComponent.new do |component| %>
-          <% component.with_trigger do %>
-            <button>
-              <%= render IconComponent.new(name: 'more', source: 'microsoft-icons') %>
-            </button>
-          <% end %>
-
+        <% Task.statuses.each do |_, status| %>
           <% component.with_item do %>
-            <%= link_to edit_task_path(data.id), data: { turbo: false } do %>
-              Edit
-            <% end %>
-          <% end %>
-
-          <% component.with_item do %>
-            <%= form_tag task_path(data.id), method: :delete, class: 'delete-task' do %>
-              <%= render(DialogComponent.new(title: 'delete', action_label: 'delete', action_variant: :critical)) do |dialog| %>
-                <% dialog.with_trigger data: { action: 'click->task#closeModal' } do %>
-                  <button type="button" >
-                   Delete
-                  </button>
-                <% end %>
-
-                <p>Confirm delete</p>
-              <% end %>
-            <% end %>
+            <%= button_to I18n.t("task.statuses.#{status}", default: status.humanize), task_path(data.id),
+              params: {
+                task: {
+                  id: data.id,
+                  status: status
+                },
+                inline: true
+              },
+              method: :patch
+            %>
           <% end %>
         <% end %>
-      </div>
+      <% end %>
 
+
+      <%= render DropdownPopoverComponent.new do |component| %>
+        <% component.with_trigger do %>
+          <button>
+            <%= render BadgeComponent.new(color: priority_color(data.priority), icon: 'chevron-down', icon_position: :trailing) do %>
+              <%= data.priority %>
+            <% end %>
+          </button>
+        <% end %>
+
+        <% Task.priorities.each do |_, priority| %>
+          <% component.with_item do %>
+            <%= button_to I18n.t("tasks.index.priorities.#{priority}"), task_path(data.id),  params: {
+                task: {
+                  id: data.id,
+                  priority: priority
+                },
+                inline: true
+              },
+              method: :patch
+            %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+    </div>
+    <div>
       <div>
         <%= render(AvatarComponent.new(
           size: 's',
           label: data.employee&.first_name
         )) %>
       </div>
+      <%= render DropdownPopoverComponent.new do |component| %>
+        <% component.with_trigger do %>
+          <button>
+            <%= render IconComponent.new(name: 'more', source: 'microsoft-icons') %>
+          </button>
+        <% end %>
+
+        <% component.with_item do %>
+          <%= link_to edit_task_path(data.id), data: { turbo: false } do %>
+            Edit
+          <% end %>
+        <% end %>
+
+        <% component.with_item do %>
+          <%= form_tag task_path(data.id), method: :delete, class: 'delete-task' do %>
+            <%= render(DialogComponent.new(title: 'delete', action_label: 'delete', action_variant: :critical)) do |dialog| %>
+              <% dialog.with_trigger data: { action: 'click->task#closeModal' } do %>
+                <button type="button" >
+                  Delete
+                </button>
+              <% end %>
+
+              <p>Confirm delete</p>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
     </div>
   </li>
 <% end %>
