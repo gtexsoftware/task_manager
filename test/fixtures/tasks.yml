@@ -3,7 +3,7 @@
 needs_to_be_done:
   name: Needs to be done
   description: Please do this
-  due_date: 2025-04-08
+  due_date: 2026-12-12
   org: casa_montanha
   employee: humberto
   priority: high
@@ -12,7 +12,7 @@ needs_to_be_done:
 can_wait_to_be_done:
   name: Can wait to be done
   description: Please wait
-  due_date: 2025-04-08
+  due_date: 2026-04-08
   org: casa_praia
   employee: humberto
   priority: high

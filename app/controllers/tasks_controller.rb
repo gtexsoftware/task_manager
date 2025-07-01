@@ -79,10 +79,14 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task)
-      .permit(
-        :name, :description, :due_date, :priority, :status, :employee_id
-      ).merge(org_id: Org.last.id)
+    if params[:task].is_a?(ActionController::Parameters)
+      params.require(:task)
+        .permit(
+          :name, :description, :due_date, :priority, :status, :employee_id
+        ).merge(org_id: Org.last.id)
+    else
+      {}
+    end
   end
 
   def set_task
