@@ -1,81 +1,82 @@
+<%= turbo_frame_tag 'new_task' do %>
 <% decorator = TaskDecorator.new(@task) %>
+  <div class="task-form" data-controller="task" data-task-mode-value="<%= params[:action] %>" >
+    <div class="form-wrapper">
+      <%= render partial: 'tasks/form/assign_employee', locals: {
+        employee: @task.employee,
+      } %>
+      <%= validation_error_for(@task, :org_user_id) %>
+    </div>
 
-<div class="task-form" data-controller="task" data-task-mode-value="<%= params[:action] %>" >
-  <div class="form-wrapper">
-    <%= render partial: 'tasks/form/assign_employee', locals: {
-      employee: @task.employee,
-    } %>
-    <%= validation_error_for(@task, :org_user_id) %>
-  </div>
+    <div class="form-wrapper">
+      <%= form_with model: task, class: 'form' do |form| %>
+        <%= form.hidden_field :employee_id, value: @task.employee_id %>
 
-  <div class="form-wrapper">
-    <%= form_with model: task, class: 'form' do |form| %>
-      <%= form.hidden_field :employee_id, value: @task.employee_id %>
+        <fieldset>
+          <details open>
+            <summary>
+              <h3><%= t('.details') %></h3>
+            </summary>
 
-      <fieldset>
-        <details open>
-          <summary>
-            <h3><%= t('.details') %></h3>
-          </summary>
-
-          <div class="input-group">
-            <div>
-              <%= form.label :name, 'name'  %>
-              <%= form.text_field :name, placeholder: 'name'  %>
-              <%= validation_error_for(@task, :name) %>
-            </div>
-
-            <div>
-              <%= form.label :description, 'description' %>
-              <%= form.text_area :description, {
-                placeholder: 'description',
-                rows: 5,
-                minlength: 3,
-                value: decorator&.description || @moment_decorator&.pre_filled_notes
-              } %>
-              <%# <%= validation_error_for(@task, :description) %>
-            </div>
-
-            <div>
-              <%= form.label :due_date, t('.due_date') %>
-              <%= form.date_field :due_date,
-                value: @task.due_date&.strftime('%Y-%m-%d') || @moment_decorator&.past_due_date&.strftime('%Y-%m-%d'),
-                min: Date.today.strftime('%Y-%m-%d')
-              %>
-              <%# <%= validation_error_for(@task, :due_date) %>
-            </div>
-
-            <div class="inline-inputs">
+            <div class="input-group">
               <div>
-                <%= form.label :priority, t('.priority') %>
-                <%= form.select(:priority,
-                    options_for_select([['Select Priority', '', {disabled: true, selected: true}]] + decorator.priority_options, @task.priority))
-                %>
-                <%# <%= validation_error_for(@task, :priority) %>
+                <%= form.label :name, 'name'  %>
+                <%= form.text_field :name, placeholder: 'name'  %>
+                <%= validation_error_for(@task, :name) %>
               </div>
 
               <div>
-                <%= form.label :status, t('.status') %>
-                <%= form.select :status,
-                    options_for_select(
-                      options_for_status(decorator),
-                      @task.status
-                    )
+                <%= form.label :description, 'description' %>
+                <%= form.text_area :description, {
+                  placeholder: 'description',
+                  rows: 5,
+                  minlength: 3,
+                  value: decorator&.description || @moment_decorator&.pre_filled_notes
+                } %>
+                <%# <%= validation_error_for(@task, :description) %>
+              </div>
+
+              <div>
+                <%= form.label :due_date, t('.due_date') %>
+                <%= form.date_field :due_date,
+                  value: @task.due_date&.strftime('%Y-%m-%d') || @moment_decorator&.past_due_date&.strftime('%Y-%m-%d'),
+                  min: Date.today.strftime('%Y-%m-%d')
                 %>
-                <%# <%= validation_error_for(@task, :status) %>
+                <%# <%= validation_error_for(@task, :due_date) %>
+              </div>
+
+              <div class="inline-inputs">
+                <div>
+                  <%= form.label :priority, t('.priority') %>
+                  <%= form.select(:priority,
+                      options_for_select([['Select Priority', '', {disabled: true, selected: true}]] + decorator.priority_options, @task.priority))
+                  %>
+                  <%# <%= validation_error_for(@task, :priority) %>
+                </div>
+
+                <div>
+                  <%= form.label :status, t('.status') %>
+                  <%= form.select :status,
+                      options_for_select(
+                        options_for_status(decorator),
+                        @task.status
+                      )
+                  %>
+                  <%# <%= validation_error_for(@task, :status) %>
+                </div>
               </div>
             </div>
-          </div>
-        </details>
-      </fieldset>
+          </details>
+        </fieldset>
 
-      <footer>
-        <%= link_to 'Cancel', :back, class: 'btn secondary' %>
+        <footer>
+          <%= link_to 'Cancel', :back, class: 'btn secondary' %>
 
-        <%= render(ButtonComponent.new(data: { disable_with: 'Submitting' })) do %>
-          <%= action_name == 'edit' ? 'Save' : 'Create' %>
-        <% end %>
-      </footer>
-    <% end %>
+          <%= render(ButtonComponent.new(data: { disable_with: 'Submitting' })) do %>
+            <%= action_name == 'edit' ? 'Save' : 'Create' %>
+          <% end %>
+        </footer>
+      <% end %>
+    </div>
   </div>
-</div>
+<% end %>

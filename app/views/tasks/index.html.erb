@@ -10,13 +10,16 @@
 
     <%= turbo_frame_tag 'show_task' %>
 
-    <%= render(ButtonComponent.new(
-      size: :l,
-      href: new_task_path,
-      icon: { name: 'add' },
-      data: { turbo: true }
-    )) do %>
-        Add task
-    <% end %>
+
+   <%= turbo_frame_tag 'new_task' do  %>
+      <%= render(ButtonComponent.new(
+        size: :l,
+        href: new_task_path,
+        icon: { name: 'add' },
+        data: { turbo: true }
+      )) do %>
+          Add task
+      <% end %>
+   <% end %>
   </div>
 </div>

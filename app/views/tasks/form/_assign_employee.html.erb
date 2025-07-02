@@ -9,7 +9,6 @@
         domain: 'employees',
       )) do |search_box| %>
         <% search_box.with_input_component(
-          icon: 'person',
           label:  'name',
           value: employee&.first_name
         ) %>

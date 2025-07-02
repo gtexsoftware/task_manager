@@ -77,46 +77,13 @@ en-US:
         fundraising: Fundraising
         other_goal: Other Goal
         other_purpose: Other
-      priorities:
-        low: Low
-        medium: Medium
-        high: High
-      statuses:
-        not_started: Not Started
-        in_progress: In Progress
-        completed: Completed
-        blocked: Blocked
-
-    # categories:
-    #   outreach: Outreach
-    #   email: Email
-    #   report: Report
-    #   goal: Goal
-    #   other: Other
-    # purposes:
-    #   acknowledgement: Acknowledgement
-    #   solicitation_outreach: Solicitation Outreach
-    #   receipt: Receipt
-    #   meeting: Meeting
-    #   other_outreach: Other Outreach
-    #   newsletter: Newsletter
-    #   solicitation_email: Solicitation Email
-    #   fundraiser: Fundraiser
-    #   other_email: Other Email
-    #   financial: Financial
-    #   communication: Communication
-    #   donor_overview: Donor Overview
-    #   kpi: KPI
-    #   other_report: Other Report
-    #   fundraising: Fundraising
-    #   other_goal: Other Goal
-    #   other_purpose: Other
-    # priorities:
-    #   low: Low
-    #   medium: Medium
-    #   high: High
-    # statuses:
-    #   not_started: Not Started
-    #   in_progress: In Progress
-    #   completed: Completed
-    #   blocked: Blocked
+      tasks:
+        priorities:
+          low: Low
+          medium: Medium
+          high: High
+        statuses:
+          not_started: Not Started
+          in_progress: In Progress
+          completed: Completed
+          blocked: Blocked

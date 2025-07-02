@@ -50,7 +50,7 @@ class TaskDecorator < BaseDecorator
   # end
 
   def status_options
-    Task.statuses.map { |key, _value| [ Task.humanized_enum("statuses", key), key ] }
+    Task.statuses.map { |key, _value| [ Task.statuses, key ] }
   end
 
   def status
@@ -58,7 +58,7 @@ class TaskDecorator < BaseDecorator
   end
 
   def priority_options
-    Task.priorities.map { |key, _value| [ Task.humanized_enum("priorities", key), key ] }
+    Task.priorities.map { |key, _value| [ Task.priorities, key ] }
   end
 
   def priority

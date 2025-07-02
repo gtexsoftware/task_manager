@@ -11,10 +11,6 @@
         **@native_attributes
       )) %>
 
-      <div class="input-custom-icon">
-        <%= custom_icon %>
-      </div>
-
       <% if @icon %>
         <%= render(IconComponent.new(name: @icon, source: 'microsoft-icons'))%>
       <% end %>
