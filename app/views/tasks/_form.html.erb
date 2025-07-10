@@ -13,22 +13,16 @@
         <%= form.hidden_field :employee_id, value: @task.employee_id %>
 
         <fieldset>
-          <details open>
-            <summary>
-              <h3><%= t('.details') %></h3>
-            </summary>
-
             <div class="input-group">
-              <div>
-                <%= form.label :name, 'name'  %>
-                <%= form.text_field :name, placeholder: 'name'  %>
+              <div class="inline-inputs">
+                <%= form.label :name, 'Task Title'  %>
+                <%= form.text_field :name %>
                 <%= validation_error_for(@task, :name) %>
               </div>
 
-              <div>
-                <%= form.label :description, 'description' %>
+              <div class="inline-inputs">
+                <%= form.label :description, 'Task Description' %>
                 <%= form.text_area :description, {
-                  placeholder: 'description',
                   rows: 5,
                   minlength: 3,
                   value: decorator&.description || @moment_decorator&.pre_filled_notes
@@ -36,7 +30,7 @@
                 <%# <%= validation_error_for(@task, :description) %>
               </div>
 
-              <div>
+              <div class="inline-inputs">
                 <%= form.label :due_date, t('.due_date') %>
                 <%= form.date_field :due_date,
                   value: @task.due_date&.strftime('%Y-%m-%d') || @moment_decorator&.past_due_date&.strftime('%Y-%m-%d'),
@@ -45,8 +39,8 @@
                 <%# <%= validation_error_for(@task, :due_date) %>
               </div>
 
-              <div class="inline-inputs">
-                <div>
+              <div>
+                <div class="inline-inputs">
                   <%= form.label :priority, t('.priority') %>
                   <%= form.select(:priority,
                       options_for_select([['Select Priority', '', {disabled: true, selected: true}]] + decorator.priority_options, @task.priority))
@@ -54,7 +48,7 @@
                   <%# <%= validation_error_for(@task, :priority) %>
                 </div>
 
-                <div>
+                <div class="inline-inputs">
                   <%= form.label :status, t('.status') %>
                   <%= form.select :status,
                       options_for_select(
@@ -66,11 +60,10 @@
                 </div>
               </div>
             </div>
-          </details>
         </fieldset>
 
         <footer>
-          <%= link_to 'Cancel', :back, class: 'btn secondary' %>
+          <%= link_to 'Cancel', tasks_path, class: 'btn secondary' %>
 
           <%= render(ButtonComponent.new(data: { disable_with: 'Submitting' })) do %>
             <%= action_name == 'edit' ? 'Save' : 'Create' %>

@@ -4,6 +4,7 @@
 
 <div class="dashboard">
   <div class="dashboard-sections">
+  <%= turbo_frame_tag 'new_task' do  %>
     <%= render partial: 'tasks/index/task_list', locals: {
       tasks: @tasks
     } %>
@@ -11,7 +12,7 @@
     <%= turbo_frame_tag 'show_task' %>
 
 
-   <%= turbo_frame_tag 'new_task' do  %>
+   
       <%= render(ButtonComponent.new(
         size: :l,
         href: new_task_path,

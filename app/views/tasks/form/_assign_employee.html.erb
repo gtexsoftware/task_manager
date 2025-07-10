@@ -1,15 +1,11 @@
 <fieldset>
-  <details open>
-    <summary>
-      <h3><%= t('.title') %></h3>
-    </summary>
     <div>
       <%= render(SearchBoxComponent.new(
         path: tasks_employee_autocomplete_tasks_path,
         domain: 'employees',
       )) do |search_box| %>
         <% search_box.with_input_component(
-          label:  'name',
+          label:  'Employee Name',
           value: employee&.first_name
         ) %>
 
@@ -18,5 +14,4 @@
         <% end %>
       <% end %>
     </div>
-  </details>
 </fieldset>
