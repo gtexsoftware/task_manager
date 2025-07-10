@@ -39,7 +39,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      handle_success_message
+      redirect_to tasks_path, notice: "You've successfully updated the task."
     else
       flash.now[:alert] = "Failed to update task, please select all options."
       render :edit
