@@ -48,7 +48,7 @@ env:
 
     # Match this to any external database server to configure Active Record correctly
     # Use task_manager-db for a db accessory server on same machine via local kamal docker network.
-    # DB_HOST: 192.168.0.2
+    DB_HOST: postgresql://proud-star-947.flycast
 
     # Log everything from Rails
     # RAILS_LOG_LEVEL: debug
@@ -118,3 +118,6 @@ builder:
 #     port: 6379
 #     directories:
 #       - data:/data
+
+
+
