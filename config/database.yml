@@ -79,11 +79,12 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
+  url: <%= ENV['DATABASE_URL'] %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # The specified database role being used to connect to PostgreSQL.
   primary: &primary_production
     <<: *default
     database: task_manager_production
-    username: task_manager
-    password: <%= ENV["TASK_MANAGER_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
     database: task_manager_production_cache
