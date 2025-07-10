@@ -10,6 +10,7 @@ console_command = '/rails/bin/rails console'
 [build]
 
 [http_service]
+  PORT=8080
   internal_port = 8080
   force_https = true
   auto_stop_machines = 'stop'
