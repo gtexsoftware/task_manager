@@ -8,6 +8,8 @@ Este meu projeto é um gerenciador de tarefas para designar tarefas e prazos par
 
 🚀 Como rodar o projeto localmente
 
+Não precisa, pois eu subi ele no flyio =) https://task-manager-a0kf0a.fly.dev/
+Mas se quiser seguem os passos abaixo.
 
 Clone o repositório
 git clone https://github.com/gtexsoftware/task_manager cd task-manager rails db:create rails db:migrate rails db:fixtures:load
