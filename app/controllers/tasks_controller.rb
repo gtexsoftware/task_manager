@@ -47,16 +47,9 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    @task = Task.find(params[:id])
     @task.destroy
-    flash.now[:notice] = "You've successfully deleted the task."
-    render turbo_stream: [
-      turbo_stream.update(
-        "task_list",
-        partial: "tasks/index/task_list",
-        locals: { tasks: @tasks }
-      ),
-      turbo_stream.update("flash", partial: "layouts/flash")
-    ]
+    redirect_to tasks_path, notice: "You've successfully deleted the task."
   end
 
   def tasks_employee_autocomplete

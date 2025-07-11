@@ -6,6 +6,7 @@
       )) do |search_box| %>
         <% search_box.with_input_component(
           label:  'Employee Name',
+          placeholder: 'Type first 3 letters of employee name',
           value: employee&.first_name
         ) %>
 

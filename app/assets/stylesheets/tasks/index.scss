@@ -3,7 +3,7 @@
 
   .dashboard-sections {
     height: 100%;
-    padding: 300px;
+    padding: 100px;
 
     .empty {
       margin: 20px;
@@ -20,6 +20,8 @@
       turbo-frame { width: 800px }
 
       .task {
+        margin-top: 40px;
+        margin-bottom: 30px;
         padding: var(--db-spacing-3) var(--db-spacing-2);
         border-bottom: 1px solid var(--db-color-grey-200);
         display: flex;

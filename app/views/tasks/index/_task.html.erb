@@ -98,17 +98,10 @@
         <% end %>
 
         <% component.with_item do %>
-          <%= form_tag task_path(data.id), method: :delete, class: 'delete-task' do %>
-            <%= render(DialogComponent.new(title: 'delete', action_label: 'delete', action_variant: :critical)) do |dialog| %>
-              <% dialog.with_trigger data: { action: 'click->task#closeModal' } do %>
-                <button type="button" >
-                  Delete
-                </button>
-              <% end %>
-
-              <p>Confirm delete</p>
-            <% end %>
-          <% end %>
+            <%= link_to "Delete",
+              task_path(task.id),
+              data: { turbo_method: :delete, turbo_confirm: "Are you sure?", turbo_frame: "_top" }
+            %>
         <% end %>
       <% end %>
     </div>
