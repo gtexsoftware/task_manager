@@ -33,5 +33,3 @@ Para o crud do aplicativo nas ações do controller foi usado o Active Record e 
 Tests
 
 Para testar o app e garantir que as funcionalidades não quebrem foi feito um teste de controller.
-
-# ruby_avancado
